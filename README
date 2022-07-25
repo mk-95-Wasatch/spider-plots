@@ -3,6 +3,14 @@ ______________________________________________________________________
 
 To perform a scalability test clone this repo to the machine of interest. 
 
+- rebuild wasatch with the following change to the SimulationController.cc 
+
+  old >
+        Uintah::Dout g_comp_stats(      "ComponentStats"            , "SimulationController", "Aggregated component stats"       , false );
+  new >
+        Uintah::Dout g_comp_stats(      "ComponentStats"            , "SimulationController", "Aggregated component stats"       , true );
+
+
 - Edit the files 
 
  extractScalingData
