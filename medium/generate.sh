@@ -31,7 +31,7 @@ THREADS="1"
 num_timesteps="100"
 # with problem size we increase the resolution by a 
 # factor of two in all directions
-L0_resolution="[32,32,32]"
+L0_resolution="[64,64,64]"
 
 #__________________________________
 # 2 cores
@@ -139,8 +139,7 @@ for cores in $CORES; do
     export TIME
     
     echo "$JOB.$nodes.$size ../runsus.sh"
-    ../runsus.sh
-    # echo "srun -N $JOB.$nodes.$size -l walltime=$TIME -l select=$nodes:ncpus=36:mpiprocs=36$MEMORY ../runsus.sh"
-    # qsub -N $JOB.$nodes.$size -l walltime=$TIME -l select=$nodes:ncpus=36:mpiprocs=36$MEMORY ../runsus.sh
+    # ../runsus.sh" # uncomment if you want to test locally
+    sbatch -t $TIME --ntasks=$procs --job-name=$JOB.$nodes.$size ../runsus.sh
     
 done

@@ -1,15 +1,12 @@
 #!/bin/bash
 
-#SBATCH --time=$TIME # walltime, abbreviated by -t
-#SBATCH --job-name=$JOB.$nodes.$size
 #SBATCH -e slurm-%j.err-%n
 #SBATCH -o slurm-%j.out-%n
-#SBATCH --ntasks=$procs # number of MPI tasks, abbreviated by -n # additional information for allocated clusters
 
 ## Ash account
 #SBATCH --account=smithp-guest
 #SBATCH --partition=ash-guest
-#SBATCH-C "c12"
+##SBATCH-C "c12"
 
 # # notchpeak
 ## SBATCH --account=saad
@@ -36,13 +33,14 @@ echo "procs=$procs"
 echo "size=$size"
 echo "threads=$threads"
 echo "nodes=$nodes"
+echo "nodes=$TIME"
 echo "pwd=`pwd`"
 echo "---------------------------------"
-    
+
+# load the neccessary modules 
+module load gcc/8.5.0 openmpi/4.1.1 intel-oneapi-mkl/2021.4.0 hypre/2.23.0 boost/1.77.0 cmake/3.21.4
+
 pwd
 # export MPICH_MAX_THREAD_SAFETY=multiple
 echo "$MPIRUN  $EXE ../inputs/$ups &> $OUT"
 $MPIRUN $EXE ../$INPUT_DIR/$ups &> $OUT
-
-
-
