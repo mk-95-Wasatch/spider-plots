@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/csh
 #______________________________________________________________________
 #  Script that will remove all files generated during a scaling study
 #  Be careful!

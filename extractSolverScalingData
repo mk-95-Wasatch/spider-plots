@@ -1,4 +1,4 @@
-#!/bin/bash -f
+#!/bin/csh -f
 #______________________________________________________________________
 #  This script parses the output file from sus and 
 #  generates a data file used for scaling plots.  The data file is layed out

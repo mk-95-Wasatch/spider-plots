@@ -1,4 +1,4 @@
-#!/bin/bash -f 
+#!/bin/csh -f 
 #______________________________________________________________________
 #  This script loops through all of the directories and extracts the scaling
 #  data for each problem size.
