@@ -1,0 +1,16 @@
+#!/bin/bash
+#______________________________________________________________________
+#  Script that will remove all files generated during a scaling study
+#  Be careful!
+#______________________________________________________________________
+
+find . -name "*[0-9].ups"         -exec /bin/rm {} \;
+find . -name "*.o29*"             -exec /bin/rm {} \;
+find . -name "*.out"              -exec /bin/rm {} \;
+find . -name "*.dot"              -exec /bin/rm {} \;
+find . -name "scalingData"        -exec /bin/rm {} \;
+find . -name "TaskGraphData"        -exec /bin/rm {} \;
+find . -name "aveComponentTimes"  -exec /bin/rm {} \;
+find . -name "aveSolveTimes"      -exec /bin/rm {} \;
+find . -name "sortedData"         -exec /bin/rm {} \;
+find . -type d -name "scraps"     -exec /bin/rm -rf {} \;

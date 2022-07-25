@@ -1,0 +1,19 @@
+#!/bin/bash -f 
+#______________________________________________________________________
+#  This script loops through all of the directories and extracts the scaling
+#  data for each problem size.
+#______________________________________________________________________
+
+set these = (small medium large)
+      
+set here = `pwd`
+
+            
+foreach X ( $these[*] )
+  echo "______________________________________________________________________$X"
+  cd $X/outputs 
+  ../../extractScalingData "*.out"
+  ../../extractSolverScalingData "*.out"
+  cd $here
+  pwd
+end
